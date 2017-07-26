@@ -18,6 +18,7 @@ set expandtab
 set autoindent
 set smartindent
 
+set pastetoggle=<F2>
 " When you start searching text with /, search is performed at every
 " new character insertion.
 set incsearch
@@ -93,3 +94,85 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
 if filereadable(expand("~/.vim/custom.vim"))
     source ~/.vim/custom.vim
 endif
+
+" pathogen command 
+execute pathogen#infect()
+" Note: Skip initialization for vim-tiny or vim-small.
+" if 0 | endif
+"
+" if &compatible
+"   set nocompatible               " Be iMproved
+"   endif
+"
+"   " Required:
+"   set runtimepath+=~/.vim/bundle/neobundle.vim/
+"
+"   " Required:
+"   call neobundle#begin(expand('~/.vim/bundle/'))
+"
+"   " Let NeoBundle manage NeoBundle
+"   " Required:
+"   NeoBundleFetch 'Shougo/neobundle.vim'
+"
+"   " My Bundles here:
+"   " Refer to |:NeoBundle-examples|.
+"   " Note: You don't set neobundle setting in .gvimrc!
+"
+"   call neobundle#end()
+"
+"   " Required:
+"   filetype plugin indent on
+"
+"   " If there are uninstalled bundles found on startup,
+"   " this will conveniently prompt you to install them.
+"   NeoBundleCheck
+
+set nocompatible    "https://stackoverflow.com/questions/5845557/in-a-vimrc-is-set-noccompatible-completely-useless
+
+" https://github.com/gmarik/Vundle.vim
+
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+"syntastic command
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"javascript plugin
+
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+
+set conceallevel=1
