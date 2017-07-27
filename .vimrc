@@ -24,6 +24,7 @@ set pastetoggle=<F2>
 set incsearch
 set hlsearch
 
+
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
@@ -140,7 +141,8 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -176,3 +178,24 @@ let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 
 set conceallevel=1
+
+let g:molokai_original = 1
+" assuming you want to use snipmate snippet engine
+" ActivateAddons vim-snippets snipmate
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'moll/vim-node'
+Plug 'stanangeloff/php.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tomasr/molokai'
+Plug 'shougo/vimproc.vim'
+Plug 'shougo/unite.vim'
+Plug 'honza/vim-snippets'
+Plug 'valloric/youcompleteme'
+call plug#end()
